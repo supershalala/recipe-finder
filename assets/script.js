@@ -1,0 +1,1 @@
+const xRapidapiKey = '8d789e69ebmshb3b96351afb1710p18b2f6jsnc1ff524e4196';
