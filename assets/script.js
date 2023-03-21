@@ -5,11 +5,15 @@ function handleForm(e) {
     
     const searchField = $('#search-field').val()
     console.log(searchField);
+
+    
 }
 //handle form submissions
 $('#search-btn').on('click', handleForm)
 
 // storing search terms
+const searchText1 = $('#search-field').val()
+
 var myArray = [];
 myArray.push($('#search-field').val());
 var recentSearches = [];
