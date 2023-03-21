@@ -18,6 +18,8 @@
     <form id="form" class="search-form">
         <input type="text" id="search-field" placeholder="Search for a recipe...">
         <button type="submit" id="search-btn">Search</button>
+           
+
     </form>
     <button id="random-btn">I'm Feeling Hungry</button>
     <section id="recipe-section" class="recipe-section">
@@ -33,6 +35,12 @@
         <div class="cook">Cook Time:<p id="cook-time"></p></div>
       </div>
     </section>
+<br />
+<input type=text id=textboxSearch>
+    <button id=search onclick="searchFunction()">Search</button><br />
+    Search History:
+<div style="border:1px solid green; width:400px; height:300px; overflow-y:scroll;"> <ul id="searchHistory"></ul> 
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>

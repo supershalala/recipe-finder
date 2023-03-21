@@ -9,6 +9,26 @@ function handleForm(e) {
 //handle form submissions
 $('#search-btn').on('click', handleForm)
 
+// storing search terms
+var myArray = [];
+myArray.push($('#search-field').val());
+var recentSearches = [];
+function searchFunction(data) {
+    
+    recentSearches.push($('#search-field').val());
+$('#search-field').val("");
+$('#searchHistory').text("");
+$.each(recentSearches, function (index, value) {
+    $('#searchHistory').append("<li class='historyItem'  onclick='addtosearchfield("+index+")'>" + value + '</li>');
+});
+}
+
+function addtotextbox(id)
+{
+$('#search-field').val(recentSearches[id]);
+console.log(recentSearches);
+}
+
 // recipe list API
 const options = {
 	method: 'GET',
@@ -43,6 +63,24 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_mi
 
     let recipeContainer = $('#recipe-section') 
     
+        var myArray = [];
+myArray.push($('#search-field').val());
+var recentSearches = [];
+function searchFunction(data) {
+    
+    recentSearches.push($('#search-field').val());
+$('#search-field').val("");
+$('#searchHistory').text("");
+$.each(recentSearches, function (index, value) {
+    $('#searchHistory').append("<li class='historyItem'  onclick='addtotextbox("+index+")'>" + value + '</li>');
+});
+}
+
+function addtotextbox(id)
+{
+$('#textboxSearch').val(recentSearches[id]);
+}
+
     //get recipe heading
     let recipeHeading = $('<h1>').text(recipeObject.recipeName);
     recipeHeading.addClass('recipe-heading')
@@ -73,6 +111,8 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_mi
         instructionList.append(recipeInstructions)
 
     }
+
+
 
     //additional recipe information
     $('#serves').text(recipeObject.serves);
