@@ -64,3 +64,42 @@ h1 {
 #search-btn:hover {
     opacity: 0.8;
 }
+
+
+/* * recipe container styles */
+
+.recipe-section {
+    margin-inline: auto;
+    padding: 2rem;
+    border: 2px solid teal;
+    width: clamp(30rem, 85vw + 1rem, 70rem );
+}
+
+.ingredients,
+.instructions {
+    list-style-type: decimal;
+    list-style-position: inside;
+    margin-bottom: 1rem;
+}
+
+.ingredients *, 
+.instructions *
+{
+    margin-bottom: .5rem
+}
+
+.recipe-description {
+    margin-bottom: 1rem;
+}
+
+.recipe-heading {
+    margin: 2.5rem 0;
+}
+
+
+.serves,
+.prep,
+.cook {
+    display: flex;
+    gap: 1rem;
+}
