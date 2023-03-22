@@ -99,6 +99,14 @@ function getRecipe(search) {
     })
     .then(function(data) {
         console.log(data);
+
+        // Search for the first recipe in the 'data.results' array that meets the following conditions:
+        // 1. The 'instructions' property exists and contains at least one item.
+        // 2. The 'sections' property exists and contains at least one item.
+
+        const validRecipe = data.results.find(recipe => recipe.instructions && recipe.instructions.length > 0 && recipe.sections && recipe.sections.length > 0);
+
+        console.log(validRecipe);
         
         const recipeObject = {
             recipeName: data.results[0].name,
@@ -113,6 +121,8 @@ function getRecipe(search) {
         console.log(recipeObject);
         
         let recipeContainer = $('#recipe-section') 
+           // Create a new div for the recipe details
+           let recipeDetails = $('<div>');
         
         //get recipe heading
         let recipeHeading = $('<h1>').text(recipeObject.recipeName);
@@ -126,6 +136,11 @@ function getRecipe(search) {
         let ingredients = data.results[0].sections[0].components;
         recipeObject.ingredientsArray.push(ingredients)
         let ingredientsList = $('#ingredients-list');
+
+         // Empty the ingredientsList before appending new ingredients
+         ingredientsList.empty();
+
+
         // ingredient - loop through array of ingredients
         for (let i = 0; i < ingredients.length; i++) {
             let ingredient = ingredients[i].raw_text;
@@ -136,6 +151,9 @@ function getRecipe(search) {
         //cooking instructions - loop through each instruction & create <li>
         let instructions = data.results[0].instructions
         let instructionList = $('#instruction-list');
+
+           // Empty the instructionList before appending new instructions
+           instructionList.empty();
         
         for (let i = 0; i < instructions.length; i++) {
             let displayText = instructions[i].display_text
@@ -151,8 +169,12 @@ function getRecipe(search) {
         
         
         //append to recipe container
-        recipeContainer.append(recipeHeading, description, ingredientsList, instructionList)
-        
+        // recipeContainer.append(recipeHeading, description, ingredientsList, instructionList)
+         //append to recipe details container
+         recipeDetails.append(recipeHeading, description, ingredientsList, instructionList);
+
+         // Empty the recipeContainer and append the new recipe details
+         recipeContainer.empty().append(recipeDetails);
     })
       
 }
