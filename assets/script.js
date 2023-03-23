@@ -1,99 +1,18 @@
 var searchField = $('#search-field')
 
-// function GetRecipe() {
-              
-//     const options1 = {
-//         method: 'GET',
-//         headers: {
-//             'X-RapidAPI-Key': '8d789e69ebmshb3b96351afb1710p18b2f6jsnc1ff524e4196',
-//             'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-//         }
-//     };
-
-//     let searchField = 'pizza'
-//     fetch(`https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q=&${searchField}`, options1)
-
-//     .then(function(response){
-//         return response.json();
-//     })
-//     .then(function(data) {
-//         console.log(data);
-        
-//         const recipeObject = {
-//             recipeName: data.results[0].name,
-//             description: data.results[0].description,
-//             instructionsArray: [],
-//             ingredientsArray: [],
-//             serves: data.results[0].num_servings,
-//             cookTime: data.results[0].cook_time_minutes,
-//             prepTime: data.results[0].prep_time_minutes,
-            
-//         }    
-//         console.log(recipeObject);
-
-//         let recipeContainer = $('#recipe-section') 
-        
-//         //get recipe heading
-//         let recipeHeading = $('<h1>').text(recipeObject.recipeName);
-//         recipeHeading.addClass('recipe-heading')
-        
-//         //get recipe description
-//         let description = $('<p>').text(recipeObject.description);
-//         description.addClass('recipe-description')
-        
-//         // get recipe ingredients - loop through each ingredient & create <li>
-//         let ingredients = data.results[0].sections[0].components;
-//         recipeObject.ingredientsArray.push(ingredients)
-//         let ingredientsList = $('#ingredients-list');
-//         // ingredient - loop through array of ingredients
-//         for (let i = 0; i < ingredients.length; i++) {
-//             let ingredient = ingredients[i].raw_text;
-//             let recipeIngredient = $('<li>').text(ingredient);
-//             ingredientsList.append(recipeIngredient);
-//         }
-        
-//         //cooking instructions - loop through each instruction & create <li>
-//         let instructions = data.results[0].instructions
-//         let instructionList = $('#instruction-list');
-        
-//         for (let i = 0; i < instructions.length; i++) {
-//             let displayText = instructions[i].display_text
-//             recipeObject.instructionsArray.push(displayText)
-//             let recipeInstructions = $('<li>').text(displayText);
-//             instructionList.append(recipeInstructions)
-//         }
-        
-//         //additional recipe information
-//         $('#serves').text(recipeObject.serves);
-//         $('#prep-time').text(recipeObject.prepTime);
-//         $('#cook-time').text(recipeObject.cookTime);
-        
-        
-//         //append to recipe container
-//         recipeContainer.append(recipeHeading, description, ingredientsList, instructionList)
-        
-//     })
-// }
-
-//GetRecipe()
-
-
 function getRecipe(search) {
 
     $('#recipe-heading').empty();
 
-    const options3 = {
+    const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '8d789e69ebmshb3b96351afb1710p18b2f6jsnc1ff524e4196',
+            'X-RapidAPI-Key': 'dba8a30f3bmsh6d57e2363b99b58p123acajsn53546ffc007f',
             'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
         }
-    };
-    // let search = searchField.val();
-    // console.log(search);
+    };   
     
-    
-    fetch(`https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q=${search}`, options3)
+    fetch(`https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q=${search}`, options)
     .then(function(response){
         return response.json();
     })
@@ -103,27 +22,28 @@ function getRecipe(search) {
         // Search for the first recipe in the 'data.results' array that meets the following conditions:
         // 1. The 'instructions' property exists and contains at least one item.
         // 2. The 'sections' property exists and contains at least one item.
-
         const validRecipe = data.results.find(recipe => recipe.instructions && recipe.instructions.length > 0 && recipe.sections && recipe.sections.length > 0);
-
         console.log(validRecipe);
-        
+
         const recipeObject = {
-            recipeName: data.results[0].name,
-            description: data.results[0].description,
+            image: validRecipe.thumbnail_url,
+            recipeName: validRecipe.name,
+            description: validRecipe.description,
             instructionsArray: [],
             ingredientsArray: [],
-            serves: data.results[0].num_servings,
-            cookTime: data.results[0].cook_time_minutes,
-            prepTime: data.results[0].prep_time_minutes,
-            
-        }    
-        console.log(recipeObject);
+            serves: validRecipe.num_servings,
+            prepTime: validRecipe.prep_time_minutes,
+            cookTime: validRecipe.cook_time_minutes,
+        }
         
         let recipeContainer = $('#recipe-section') 
-           // Create a new div for the recipe details
-           let recipeDetails = $('<div>');
+        // Create a new div for the recipe details
+        let recipeDetails = $('<div>');
         
+        // get recipe image
+        let image = $('<img>').addClass('recipe-image');
+        image.attr('src', recipeObject.image)
+
         //get recipe heading
         let recipeHeading = $('<h1>').text(recipeObject.recipeName);
         recipeHeading.addClass('recipe-heading')
@@ -133,27 +53,30 @@ function getRecipe(search) {
         description.addClass('recipe-description')
         
         // get recipe ingredients - loop through each ingredient & create <li>
-        let ingredients = data.results[0].sections[0].components;
-        recipeObject.ingredientsArray.push(ingredients)
+        let ingredients = validRecipe.sections[0].components;
+        // add a heading to ingredients
+        ingredientsHeading = $('<h2>').text('Ingredients').addClass('ingredients-heading')
         let ingredientsList = $('#ingredients-list');
-
-         // Empty the ingredientsList before appending new ingredients
-         ingredientsList.empty();
-
-
+        
+        // Empty the ingredientsList before appending new ingredients
+        ingredientsList.empty();
+        
         // ingredient - loop through array of ingredients
         for (let i = 0; i < ingredients.length; i++) {
             let ingredient = ingredients[i].raw_text;
+            recipeObject.ingredientsArray.push(ingredient)
             let recipeIngredient = $('<li>').text(ingredient);
             ingredientsList.append(recipeIngredient);
         }
-        
-        //cooking instructions - loop through each instruction & create <li>
-        let instructions = data.results[0].instructions
-        let instructionList = $('#instruction-list');
 
-           // Empty the instructionList before appending new instructions
-           instructionList.empty();
+        //cooking instructions - loop through each instruction & create <li>
+        let instructions = validRecipe.instructions
+        // add a heading to instructions
+        instructionHeading = $('<h2>').text('Method').addClass('instructions-heading')
+        let instructionList = $('#instruction-list');
+ 
+        // Empty the instructionList before appending new instructions
+        instructionList.empty();
         
         for (let i = 0; i < instructions.length; i++) {
             let displayText = instructions[i].display_text
@@ -162,27 +85,35 @@ function getRecipe(search) {
             instructionList.append(recipeInstructions)
         }
         
-        //additional recipe information
-        $('#serves').text(recipeObject.serves);
-        $('#prep-time').text(recipeObject.prepTime);
-        $('#cook-time').text(recipeObject.cookTime);
-        
-        
-        //append to recipe container
-        // recipeContainer.append(recipeHeading, description, ingredientsList, instructionList)
-         //append to recipe details container
-         recipeDetails.append(recipeHeading, description, ingredientsList, instructionList);
+        // additional recipe information
+        // only display additional info if it exists in the object
+        if(recipeObject.serves !== null) {
+          let serves = $('#serves').text(`Serves: ${recipeObject.serves}`);
+        }
 
-         // Empty the recipeContainer and append the new recipe details
-         recipeContainer.empty().append(recipeDetails);
-    })
-      
-}
+        let prepTime = $('#prep-time')
+        if(recipeObject.prepTime !== null) {
+           $('#prep-time').text(`Prep time: ${recipeObject.prepTime}`) 
+        }
+        
+        let cookTime = $('#cook-time')
+        if(recipeObject.cookTime !== null) {
+           $('#cook-time').text(`Cook time: ${recipeObject.cookTime}`)
+        }
+
+        //append to recipe details container
+        recipeDetails.append(image, recipeHeading, description, ingredientsHeading, ingredientsList, instructionHeading, instructionList, serves, prepTime, cookTime);
+        
+        // Empty the recipeContainer and append the new recipe details
+        recipeContainer.empty().append(recipeDetails);
+        
+        }) 
+    }
     
     function handleForm(e) {
         e.preventDefault();
         const searchField = $("#search-field").val();
-        getRecipe(searchField)
+        getRecipe(searchField)        
     }
       //handle form submissions
       $("#search-btn").on("click", handleForm);
