@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./assets/style.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.4.min.js"
-      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-      crossorigin="anonymous"
-    ></script>
-    <title>Recipe Maker</title>
-  </head>
-  <body>
-    <h1>Recipe Search Tool</h1>
-    <form id="form" class="search-form">
-        <input type="text" id="search-field" placeholder="Search for a recipe...">
-        <button type="submit" id="search-btn">Search</button>
-    </form>
-    <button id="random-btn">I'm Feeling Hungry</button>
-    <section id="recipe-section" class="recipe-section">
-      <img id="img-section"></img>
-      <ul id="ingredients-list" class="ingredients">
-      </ul>
-      <ul id="instruction-list" class="instructions">
-      </ul>
-      <div id="additional-info">
-        <div class="serves"><p id="serves"></p></div>
-        <div class="prep"><p id="prep-time"></p></div>
-        <div class="cook"><p id="cook-time"></p></div>
-      </div>
-    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="./assets/script.js"></script>
-  </body>
+   <link rel="stylesheet" href="./assets/style.css" />
+   <script
+     src="https://code.jquery.com/jquery-3.6.4.min.js"
+     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+     crossorigin="anonymous"
+   ></script>
+   <title>Recipe Maker</title>
+ </head>
+ <body>
+   <h1>Recipe Search Tool</h1>
+   <form id="form" class="search-form">
+     <input type="text" id="search-field" placeholder="Search for a recipe...">
+     <button type="button" id="search-btn" onclick="searchFunction()">Search</button>
+     <h3> Search History:</h3>
+     <ul id="searchHistory"></ul>
+ </form>
+
+
+   <button id="random-btn">I'm Feeling Hungry</button>
+   <section id="recipe-section" class="recipe-section">
+     <img id="img-section"></img>
+     <ul id="ingredients-list" class="ingredients">
+     </ul>
+     <ul id="instruction-list" class="instructions">
+     </ul>
+     <div id="additional-info">
+       <div class="serves"><p id="serves"></p></div>
+       <div class="prep"><p id="prep-time"></p></div>
+       <div class="cook"><p id="cook-time"></p></div>
+     </div>
+   </section>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  
+   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+   <script src="./assets/script.js"></script>
+ </body>
 </html>
