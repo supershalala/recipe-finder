@@ -18,8 +18,11 @@
     <form id="form" class="search-form">
         <input type="text" id="search-field" placeholder="Search for a recipe...">
         <button type="button" id="search-btn" onclick="searchFunction()">Search</button>
+        <h3> Search History:</h3>
+        <ul id="searchHistory"></ul>
     </form>
     <button id="random-btn">I'm Feeling Hungry</button>
+
     <section id="recipe-section" class="recipe-section">
       <ul id="ingredients-list" class="ingredients">
         <h2>Ingredients</h2>
@@ -34,8 +37,8 @@
       </div>
     </section>
     <br />
-    Search History:
-<div style="border:1px solid green; width:400px; height:300px; overflow-y:scroll;"> <ul id="searchHistory"></ul> 
+   
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="./assets/script.js"></script>
