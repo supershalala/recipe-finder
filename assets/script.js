@@ -13,7 +13,7 @@ $('#search-btn').on('click', handleForm)
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '8d789e69ebmshb3b96351afb1710p18b2f6jsnc1ff524e4196',
+		'X-RapidAPI-Key': 'e1517c5425msh5e3b74296622da7p1b0b1ajsn2a8993a63f53',
 		'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
 	}
 };
@@ -34,7 +34,7 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_mi
         serves: data.results[0].num_servings,
         cookTime: data.results[0].cook_time_minutes,
         prepTime: data.results[0].prep_time_minutes,
-          
+        
     }    
     console.log(recipeObject);
     
@@ -83,4 +83,22 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_mi
     //append to recipe container
     recipeContainer.append(recipeHeading, description, ingredientsList, instructionList)
     
+})
+
+var randomBtn= $("#random-btn");
+randomBtn.click(function(){
+    console.log("pass");
+    const options = {
+        method: 'GET',
+        headers: {'X-RapidAPI-Key': 'e1517c5425msh5e3b74296622da7p1b0b1ajsn2a8993a63f53', 'X-RapidAPI-Host': 'tasty.p.rapidapi.com'}
+    };
+    // var testEndPoint= "https://tasty.p.rapidapi.com/tags/list";
+    var EndP= "https://tasty.p.rapidapi.com/recipes/list-similarities?recipe_id=8630";
+    fetch(EndP, options)
+        .then(function(response1){
+            return response1.json();
+        })
+        .then(function(data1){
+            console.log(data1);
+        })
 })
