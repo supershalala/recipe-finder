@@ -3,7 +3,9 @@
  <head>
    <meta charset="UTF-8" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <!-- Bulma CDN -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
 
    <link rel="stylesheet" href="./assets/style.css" />
@@ -15,18 +17,24 @@
    <title>Recipe Maker</title>
  </head>
  <body>
-   <h1>Recipe Search Tool</h1>
+  <div class="columns pt-4 has-background-dark">
+   <h1 class="column is-one-quarter pl-5 has-text-primary-light is-size-2">Recipe Search Tool</h1>
    <form id="form" class="search-form">
      <input type="text" id="search-field" placeholder="Search for a recipe...">
      <button type="button" id="search-btn" onclick="searchFunction()">Search</button>
      <h3> Search History:</h3>
      <ul id="searchHistory"></ul>
  </form>
+   <button id="random-btn " class="button is-large is-link">I'm Feeling Hungry</button>
 
-
-   <button id="random-btn">I'm Feeling Hungry</button>
-   <section id="recipe-section" class="recipe-section">
-     <img id="img-section"></img>
+  </div>
+<!-- card section that dynamically loads from JS -->
+   <section id="recipe-section" class="recipe-section card">
+    <div class="card-image">
+      <figure class="image">
+     <img class="is-256x256" id="img-section"></img>
+    </figure>
+    </div>
      <ul id="ingredients-list" class="ingredients">
      </ul>
      <ul id="instruction-list" class="instructions">
