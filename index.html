@@ -16,18 +16,30 @@
    ></script>
    <title>Recipe Maker</title>
  </head>
+ 
  <body>
   <div class="columns pt-4 has-background-dark">
    <h1 class="column is-one-quarter pl-5 has-text-primary-light is-size-2">Recipe Search Tool</h1>
    <form id="form" class="search-form">
-     <input type="text" id="search-field" placeholder="Search for a recipe...">
-     <button type="button" id="search-btn" onclick="searchFunction()">Search</button>
-     <h3> Search History:</h3>
-     <ul id="searchHistory"></ul>
+     <input type="text" class="input" id="search-field" placeholder="Search for a recipe...">
+     <button type="button" class="button" id="search-btn" onclick="searchFunction()">Search</button>
+     <button id="random-btn " class="button is-large is-link">I'm Feeling Hungry</button>
+
  </form>
-   <button id="random-btn " class="button is-large is-link">I'm Feeling Hungry</button>
+  
+
+  
 
   </div>
+
+  <!-- Search Historydiv -->
+  <div>
+
+    <h3> Search History:</h3>
+    <ul id="searchHistory"></ul>
+   </div>
+
+
 <!-- card section that dynamically loads from JS -->
    <section id="recipe-section" class="recipe-section card">
     <div class="card-image">
