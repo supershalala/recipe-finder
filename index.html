@@ -5,7 +5,9 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
+   <link href="
+   https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css
+   " rel="stylesheet">   
    <link rel="stylesheet" href="./assets/style.css" />
    <script
      src="https://code.jquery.com/jquery-3.6.4.min.js"
@@ -25,6 +27,29 @@
 
 
    <button id="random-btn">I'm Feeling Hungry</button>
+   <!-- tabs section -->
+   <div class="tabs is-boxed">
+    <ul>
+      <li id="trending-recipes-tab" class="is-active">
+        <a>
+          <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+          <span>Trending Recipes</span>
+        </a>
+      </li>
+      <li id="featured-recipes-tab">
+        <a>
+          <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
+          <span>Featured</span>
+        </a>
+      </li>
+      <li id="sweets-recipes-tab">
+        <a>
+          <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
+          <span id="tab-heading">Spring Sweets</span>
+        </a>
+      </li>
+    </ul>
+  </div>
    <section id="recipe-section" class="recipe-section">
      <img id="img-section"></img>
      <ul id="ingredients-list" class="ingredients">
@@ -37,6 +62,7 @@
        <div class="cook"><p id="cook-time"></p></div>
      </div>
    </section>
+   <section id="trending-section" class="trending-section"></section>
 
 
    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
