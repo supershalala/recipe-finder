@@ -2,28 +2,27 @@
 var searchField = $('#search-field')
 
 
-var recentSearches = [];
+var recentSearches = JSON.parse(localStorage.getItem('history')) || [];
+
 function searchFunction(data) {
-
-
-
-
-  recentSearches.push($('#search-field').val());
-  $('#search-field').val("");
-  $('#searchHistory').text("");
+  recentSearches.push(searchField.val());
+  searchField.val('');
+  $('#searchHistory').text('');
   $.each(recentSearches, function (index, value) {
-      $('#searchHistory').append("<li class='historyItem'  onclick='addtosearchfield(" + index + ")'>" + value + '</li>');
+    $('#searchHistory').append("<li class='historyItem' onclick='addtosearchfield(" + index + ")'>" + value + '</li>');
   });
-  localStorage.setItem('history',JSON.stringify(recentSearches))
+  localStorage.setItem('history', JSON.stringify(recentSearches));
 }
 
-
-
-
-function addtotextbox(id) {
-  $('#search-field').val(recentSearches[id]);
-  console.log(recentSearches);
-}
+function addtosearchfield(id) {
+    searchField.val(recentSearches[id]);
+  }
+  
+  // Autocomplete using jQuery UI
+  searchField.autocomplete({
+    source: recentSearches,
+    minLength: 1
+  });
 
 
 
