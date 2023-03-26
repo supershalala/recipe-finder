@@ -1,8 +1,10 @@
-var searchField = $('#search-field')
-
-function getRecipe(search) {
-
-    $('#recipe-heading').empty();
+function addtotextbox(id) {
+    $('#search-field').val(recentSearches[id]);
+    console.log(recentSearches);
+  }
+  
+  function getRecipe(search) {
+     $('#recipe-heading').empty();
 
     const options = {
         method: 'GET',
@@ -93,12 +95,12 @@ function getRecipe(search) {
 
         let prepTime = $('#prep-time')
         if(recipeObject.prepTime !== null) {
-           $('#prep-time').text(`Prep time: ${recipeObject.prepTime}`) 
+           $('#prep-time').text(`Prep time: ${recipeObject.prepTime}`); 
         }
         
         let cookTime = $('#cook-time')
         if(recipeObject.cookTime !== null) {
-           $('#cook-time').text(`Cook time: ${recipeObject.cookTime}`)
+           $('#cook-time').text(`Cook time: ${recipeObject.cookTime}`);
         }
 
         //append to recipe details container
@@ -135,5 +137,150 @@ function getRecipe(search) {
         getRecipe(searchField)        
     }
       //handle form submissions
+<<<<<<< HEAD
     $("#search-btn").on("click", handleForm);
     $("#random-btn").on("click", randomRecipie);
+=======
+      $("#search-btn").on("click", handleForm);
+
+
+// get trending trending recipes
+function trendingRecipes() { 
+    const options2 = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'dba8a30f3bmsh6d57e2363b99b58p123acajsn53546ffc007f',
+            'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+        }
+    };
+    
+    fetch('https://tasty.p.rapidapi.com/feeds/list?size=5&timezone=%2B0700&vegetarian=false&from=0', options2)
+    .then(function(response) {
+        return response.json()
+    })
+    .then(function(data) {
+        //console.log(data);
+        
+        let trendingSearches = data.results[2].items
+        console.log(trendingSearches);
+        
+        let trendingSection = $('#trending-section')
+        let container;
+        trendingSection.empty()
+        
+        for (let i = 0; i < trendingSearches.length; i++) {
+            let trendingHeading = trendingSearches[i].name
+            trendingImg = trendingSearches[i].thumbnail_url
+            // create a div and img for each search
+            container = $('<div>').addClass('trending-container')
+            let img = $('<img>').attr('src', trendingImg)
+            let trendingTitle = $('<h2>').addClass('trending-title')
+            img.addClass('trending-img')
+            // append 
+            trendingTitle.text(trendingHeading)
+            container.append(img, trendingTitle)
+            trendingSection.append(container)
+        }
+        console.log(container);
+        
+        trendingSection.on('click', function(e) {
+            let test = e.target
+            console.log(test); 
+        })          
+    });
+}
+    
+//click on trending recipes tab will show recipes
+$('#trending-recipes-tab').on('click', trendingRecipes);
+
+//get featured recipes
+function featuredRecipes() {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'dba8a30f3bmsh6d57e2363b99b58p123acajsn53546ffc007f',
+            'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+        }
+    };
+    
+    fetch('https://tasty.p.rapidapi.com/feeds/list?size=5&timezone=%2B0700&vegetarian=false&from=0', options)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+
+            let featuredSearches = data.results[0].item.recipes
+        console.log(featuredSearches);
+
+        
+        let trendingSection = $('#trending-section')
+        let container;
+        trendingSection.empty()
+        
+        for (let i = 0; i < featuredSearches.length; i++) {
+            let trendingHeading = featuredSearches[i].name
+            trendingImg = featuredSearches[i].thumbnail_url
+            // create a div and img for each search
+            container = $('<div>').addClass('trending-container')
+            let img = $('<img>').attr('src', trendingImg)
+            let trendingTitle = $('<h2>').addClass('trending-title')
+            img.addClass('trending-img')
+            // append 
+            trendingTitle.text(trendingHeading)
+            container.append(img, trendingTitle)
+            trendingSection.append(container)
+        }
+        console.log(container);
+        })
+}
+
+//click on spring treats tab will show recipes
+$('#featured-recipes-tab').on('click', featuredRecipes);
+
+//get spring sweets recipes
+function springSweetsRecipes() {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'dba8a30f3bmsh6d57e2363b99b58p123acajsn53546ffc007f',
+            'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+        }
+    };
+    
+    fetch('https://tasty.p.rapidapi.com/feeds/list?size=5&timezone=%2B0700&vegetarian=false&from=0', options)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+
+        let springSweets = data.results[3].items
+        console.log(springSweets);
+         
+        $('#tab-heading').text(data.results[3].name)
+        
+        let trendingSection = $('#trending-section')
+        let container;
+        trendingSection.empty()
+        
+        for (let i = 0; i < springSweets.length; i++) {
+            let trendingHeading = springSweets[i].name
+            trendingImg = springSweets[i].thumbnail_url
+            // create a div and img for each search
+            container = $('<div>').addClass('trending-container')
+            let img = $('<img>').attr('src', trendingImg)
+            let trendingTitle = $('<h2>').addClass('trending-title')
+            img.addClass('trending-img')
+            // append 
+            trendingTitle.text(trendingHeading)
+            container.append(img, trendingTitle)
+            trendingSection.append(container)
+        }
+        console.log(container);
+        })
+}
+//click on spring sweets tab will show recipes
+$('#sweets-recipes-tab').on('click', springSweetsRecipes);
+
+>>>>>>> main
