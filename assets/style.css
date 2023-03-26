@@ -119,7 +119,7 @@ h1 {
     width: clamp(300px, 20vw + 100px, 1000px);
     object-fit: contain;
 } */ 
-}
+
 
 .trending-section {
     margin: 0 5rem;
