@@ -119,3 +119,23 @@ h1 {
     width: clamp(300px, 20vw + 100px, 1000px);
     object-fit: contain;
 } */ 
+}
+
+.trending-section {
+    margin: 0 5rem;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+.trending-container {
+    width: clamp(300px, 20vw + 100px, 1000px);
+    padding: .5rem;
+}
+
+.trending-img {
+    width: clamp(300px, 20vw + 100px, 1000px);
+    aspect-ratio: 1;
+    object-fit: cover;
+}
