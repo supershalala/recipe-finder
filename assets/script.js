@@ -137,10 +137,6 @@ function addtotextbox(id) {
         getRecipe(searchField)        
     }
       //handle form submissions
-<<<<<<< HEAD
-    $("#search-btn").on("click", handleForm);
-    $("#random-btn").on("click", randomRecipie);
-=======
       $("#search-btn").on("click", handleForm);
 
 
@@ -283,4 +279,3 @@ function springSweetsRecipes() {
 //click on spring sweets tab will show recipes
 $('#sweets-recipes-tab').on('click', springSweetsRecipes);
 
->>>>>>> main
