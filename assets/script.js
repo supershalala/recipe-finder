@@ -133,6 +133,25 @@ function addtosearchfield(id) {
         
         }) 
     }
+
+    function randomRecipie(){
+        console.log("pass");
+        const options = {
+            method: 'GET',
+            headers: {'X-RapidAPI-Key': 'e1517c5425msh5e3b74296622da7p1b0b1ajsn2a8993a63f53', 'X-RapidAPI-Host': 'tasty.p.rapidapi.com'}
+        };
+        // "https://tasty.p.rapidapi.com/tips/list?id=3562&from=0&size=30";                            // This endpoint is used to load tips (reviews)
+        // "https://tasty.p.rapidapi.com/recipes/get-more-info?id=8138";                               // Get more information of recipe if available, such as : ingredients, nutrition info, preparation, etc… This endpoint returns 404 status code, it means there is no more information to obtain.
+        // "https://tasty.p.rapidapi.com/feeds/list?size=5&timezone=%2B0700&vegetarian=false&from=0"
+        var EndP= "https://tasty.p.rapidapi.com/recipes/list-similarities?recipe_id=8630";             // List similar recipes by specific recipe id
+        fetch(EndP, options)
+            .then(function(response1){
+                return response1.json();
+            })
+            .then(function(data1){
+                console.log(data1);
+            })
+    }
     
     function handleForm(e) {
         e.preventDefault();
