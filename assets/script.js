@@ -134,24 +134,64 @@ function addtosearchfield(id) {
         }) 
     }
 
-    function randomRecipie(){
-        console.log("pass");
+    function randomRecipie(event){
+        event.preventDefault();
         const options = {
             method: 'GET',
             headers: {'X-RapidAPI-Key': 'e1517c5425msh5e3b74296622da7p1b0b1ajsn2a8993a63f53', 'X-RapidAPI-Host': 'tasty.p.rapidapi.com'}
         };
-        // "https://tasty.p.rapidapi.com/tips/list?id=3562&from=0&size=30";                            // This endpoint is used to load tips (reviews)
-        // "https://tasty.p.rapidapi.com/recipes/get-more-info?id=8138";                               // Get more information of recipe if available, such as : ingredients, nutrition info, preparation, etc… This endpoint returns 404 status code, it means there is no more information to obtain.
-        // "https://tasty.p.rapidapi.com/feeds/list?size=5&timezone=%2B0700&vegetarian=false&from=0"
-        var EndP= "https://tasty.p.rapidapi.com/recipes/list-similarities?recipe_id=8630";             // List similar recipes by specific recipe id
+        var EndP= "https://tasty.p.rapidapi.com/recipes/list?from=0&size=15&tags=under_30_minutes";            
         fetch(EndP, options)
             .then(function(response1){
                 return response1.json();
             })
             .then(function(data1){
-                console.log(data1);
+                addRandomRecipie(data1);
             })
     }
+    
+
+    function addRandomRecipie(randBtnData){
+        console.log(randBtnData);
+        var data1= randBtnData;
+        var randArr= Math.floor(Math.random() * data1.results.length);
+        // var randArr = 17;
+        console.log(data1.results.length);
+        console.log(randArr);
+        $("#ingredients-list").empty();
+        $("#instruction-list").empty();
+        $("#recipe-section h1").empty();
+        $("#recipe-section span").empty();
+        // $(".img-section").attr("src", "");
+        
+        var image= data1.results[randArr].thumbnail_url;
+        var recipieName= data1.results[randArr].name;
+        var description= data1.results[randArr].description;
+        var serves= data1.results[randArr].yields;
+        var prepTime= data1.results[randArr].prep_time_minutes;
+        var cookTime= data1.results[randArr].cook_time_minutes;
+        var randName= "<div><h1>"+recipieName+"</h1><span>"+description+"</span</div>";
+        $("#recipe-section").prepend(randName);
+        $("#img-section").attr("src", image);
+        $("#serves").text(serves);
+        $("#prep-time").text("Prep time: "+prepTime+ " mins");
+        $("#cook-time").text("Cook time: "+cookTime+ " mins");
+
+        
+        for(var i2= 0; i2 < data1.results[randArr].sections[0].components.length; i2++){
+            var ingredientsArray= [data1.results[randArr].sections[0].components];
+            $("#ingredients-list").append("<li>"+ingredientsArray[0][i2].raw_text+"</li>");
+        }
+        for(var i = 0; i <  data1.results[randArr].instructions.length; i++){
+            var instructionsArray= [data1.results[randArr].instructions];
+            console.log(instructionsArray);
+            $("#instruction-list").append("<li>"+instructionsArray[0][i].display_text+"</li>");
+        }
+        $("#img-section").css({"height": " 500px", "width": "500px", "margin-left": "30%"});
+        $("#instruction-list li").css("list-style-type", "disc");
+
+    }
+    $("#random-btn").on("click", randomRecipie);
     
     function handleForm(e) {
         e.preventDefault();
