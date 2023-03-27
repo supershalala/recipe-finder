@@ -6,7 +6,7 @@ var recentSearches = JSON.parse(localStorage.getItem('history')) || [];
 
 function searchFunction(data) {
   recentSearches.push(searchField.val());
-  searchField.val('');
+//   searchField.val('');
   $('#searchHistory').text('');
   $.each(recentSearches, function (index, value) {
     $('#searchHistory').append("<li class='historyItem' onclick='addtosearchfield(" + index + ")'>" + value + '</li>');
