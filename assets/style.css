@@ -130,13 +130,12 @@ h1 {
     justify-content: flex-start;
 }
 .trending-container {
-    width: clamp(300px, 20vw + 100px, 1000px);
+    width: clamp(300px, 25vw + 100px, 1000px);
     padding: .5rem;
 }
 
 .trending-img {
-    width: clamp(300px, 20vw + 100px, 1000px);
-    aspect-ratio: 1;
+    /* width: clamp(300px, 30vw + 100px, 1000px); */
     object-fit: cover;
 }
 
