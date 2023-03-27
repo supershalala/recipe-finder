@@ -126,7 +126,7 @@ function addtosearchfield(id) {
         }
 
         //append to recipe details container
-        recipeDetails.append(image, recipeHeading, description, ingredientsHeading, ingredientsList, instructionHeading, instructionList, serves, prepTime, cookTime);
+        recipeDetails.append(recipeHeading, image, description, ingredientsHeading, ingredientsList, instructionHeading, instructionList, serves, prepTime, cookTime);
         
         // Empty the recipeContainer and append the new recipe details
         recipeContainer.empty().append(recipeDetails);
