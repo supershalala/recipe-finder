@@ -31,7 +31,7 @@ function addtosearchfield(id) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'dba8a30f3bmsh6d57e2363b99b58p123acajsn53546ffc007f',
+            'X-RapidAPI-Key': 'e1517c5425msh5e3b74296622da7p1b0b1ajsn2a8993a63f53',
             'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
         }
     };   
@@ -197,7 +197,7 @@ function featuredRecipes() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'dba8a30f3bmsh6d57e2363b99b58p123acajsn53546ffc007f',
+            'X-RapidAPI-Key': 'e1517c5425msh5e3b74296622da7p1b0b1ajsn2a8993a63f53',
             'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
         }
     };
