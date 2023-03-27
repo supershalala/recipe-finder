@@ -137,18 +137,21 @@ function addtosearchfield(id) {
     function handleForm(e) {
         e.preventDefault();
         const searchField = $("#search-field").val();
-        getRecipe(searchField)        
+        getRecipe(searchField)
+        //remove the trending section if user searches for recipe
+        //recipeTabSection.empty();     
     }
       //handle form submissions
       $("#search-btn").on("click", handleForm);
 
+let recipeTabSection = $('#trending-section')
 
 // get trending trending recipes
 function trendingRecipes() { 
     const options2 = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'dba8a30f3bmsh6d57e2363b99b58p123acajsn53546ffc007f',
+            'X-RapidAPI-Key': 'e1517c5425msh5e3b74296622da7p1b0b1ajsn2a8993a63f53',
             'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
         }
     };
@@ -158,14 +161,13 @@ function trendingRecipes() {
         return response.json()
     })
     .then(function(data) {
-        //console.log(data);
+        console.log(data);
         
         let trendingSearches = data.results[2].items
         console.log(trendingSearches);
-        
-        let trendingSection = $('#trending-section')
+
         let container;
-        trendingSection.empty()
+        recipeTabSection.empty()
         
         for (let i = 0; i < trendingSearches.length; i++) {
             let trendingHeading = trendingSearches[i].name
@@ -178,107 +180,15 @@ function trendingRecipes() {
             // append 
             trendingTitle.text(trendingHeading)
             container.append(img, trendingTitle)
-            trendingSection.append(container)
+            recipeTabSection.append(container)
         }
         console.log(container);
-        
-        trendingSection.on('click', function(e) {
+        //click on recipe to log info
+        recipeTabSection.on('click', function(e) {
             let test = e.target
             console.log(test); 
         })          
     });
 }
-    
-//click on trending recipes tab will show recipes
-$('#trending-recipes-tab').on('click', trendingRecipes);
 
-//get featured recipes
-function featuredRecipes() {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'e1517c5425msh5e3b74296622da7p1b0b1ajsn2a8993a63f53',
-            'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-        }
-    };
-    
-    fetch('https://tasty.p.rapidapi.com/feeds/list?size=5&timezone=%2B0700&vegetarian=false&from=0', options)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            console.log(data);
-
-            let featuredSearches = data.results[0].item.recipes
-        console.log(featuredSearches);
-
-        
-        let trendingSection = $('#trending-section')
-        let container;
-        trendingSection.empty()
-        
-        for (let i = 0; i < featuredSearches.length; i++) {
-            let trendingHeading = featuredSearches[i].name
-            trendingImg = featuredSearches[i].thumbnail_url
-            // create a div and img for each search
-            container = $('<div>').addClass('trending-container')
-            let img = $('<img>').attr('src', trendingImg)
-            let trendingTitle = $('<h2>').addClass('trending-title')
-            img.addClass('trending-img')
-            // append 
-            trendingTitle.text(trendingHeading)
-            container.append(img, trendingTitle)
-            trendingSection.append(container)
-        }
-        console.log(container);
-        })
-}
-
-//click on spring treats tab will show recipes
-$('#featured-recipes-tab').on('click', featuredRecipes);
-
-//get spring sweets recipes
-function springSweetsRecipes() {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'dba8a30f3bmsh6d57e2363b99b58p123acajsn53546ffc007f',
-            'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-        }
-    };
-    
-    fetch('https://tasty.p.rapidapi.com/feeds/list?size=5&timezone=%2B0700&vegetarian=false&from=0', options)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            console.log(data);
-
-        let springSweets = data.results[3].items
-        console.log(springSweets);
-         
-        $('#tab-heading').text(data.results[3].name)
-        
-        let trendingSection = $('#trending-section')
-        let container;
-        trendingSection.empty()
-        
-        for (let i = 0; i < springSweets.length; i++) {
-            let trendingHeading = springSweets[i].name
-            trendingImg = springSweets[i].thumbnail_url
-            // create a div and img for each search
-            container = $('<div>').addClass('trending-container')
-            let img = $('<img>').attr('src', trendingImg)
-            let trendingTitle = $('<h2>').addClass('trending-title')
-            img.addClass('trending-img')
-            // append 
-            trendingTitle.text(trendingHeading)
-            container.append(img, trendingTitle)
-            trendingSection.append(container)
-        }
-        console.log(container);
-        })
-}
-//click on spring sweets tab will show recipes
-$('#sweets-recipes-tab').on('click', springSweetsRecipes);
-
+trendingRecipes()
