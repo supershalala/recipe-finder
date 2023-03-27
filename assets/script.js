@@ -134,7 +134,8 @@ function addtosearchfield(id) {
         }) 
     }
 
-    function randomRecipie(){
+    function randomRecipie(event){
+        event.preventDefault();
         const options = {
             method: 'GET',
             headers: {'X-RapidAPI-Key': 'e1517c5425msh5e3b74296622da7p1b0b1ajsn2a8993a63f53', 'X-RapidAPI-Host': 'tasty.p.rapidapi.com'}
@@ -172,18 +173,11 @@ function addtosearchfield(id) {
         var randName= "<div><h1>"+recipieName+"</h1><span>"+description+"</span</div>";
         $("#recipe-section").prepend(randName);
         $("#img-section").attr("src", image);
-        if(randArr == 17){
-            for(var i2= 0; i2 < data1.results[randArr].recipes[1].sections[0].components.length; i2++){
-                var ingredientsArray= [data1.results[randArr].recipes[1].sections[0].components];
-                var ingredientsArray2= [data1.results[randArr].recipes[0].sections[0].components];
-                $("#ingredients-list").append("<li>"+ingredientsArray[0][i2].raw_text+" " +ingredientsArray2[0][i2].raw_text+"</li>");
-            }
-            // for(var i = 0; i <  data1.results[randArr].instructions.length; i++){
-            //     var instructionsArray= [data1.results[randArr].instructions];
-            //     console.log(instructionsArray);
-            //     $("#instruction-list").append("<li>"+instructionsArray[0][i].display_text+"</li>");
-            // }
-        }else{
+        $("#serves").text(serves);
+        $("#prep-time").text("Prep time: "+prepTime+ " mins");
+        $("#cook-time").text("Cook time: "+cookTime+ " mins");
+
+        
         for(var i2= 0; i2 < data1.results[randArr].sections[0].components.length; i2++){
             var ingredientsArray= [data1.results[randArr].sections[0].components];
             $("#ingredients-list").append("<li>"+ingredientsArray[0][i2].raw_text+"</li>");
@@ -193,8 +187,11 @@ function addtosearchfield(id) {
             console.log(instructionsArray);
             $("#instruction-list").append("<li>"+instructionsArray[0][i].display_text+"</li>");
         }
+        $("#img-section").css({"height": " 500px", "width": "500px", "margin-left": "30%"});
+        $("#instruction-list li").css("list-style-type", "disc");
+
     }
-}
+    $("#random-btn").on("click", randomRecipie);
     
     function handleForm(e) {
         e.preventDefault();
