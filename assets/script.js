@@ -282,3 +282,20 @@ function springSweetsRecipes() {
 //click on spring sweets tab will show recipes
 $('#sweets-recipes-tab').on('click', springSweetsRecipes);
 
+$(document).ready(function() {
+    $('#search-btn').click(function() {
+      $('#homepage').hide();
+    });
+
+    $('#random-btn').click(function(){
+        event.preventDefault();
+        $('#homepage').hide();
+        console.log ("you clicked the random button");
+    });
+    
+    $('#title').on('click', function() {
+      
+        location.reload();
+      });
+
+  });
