@@ -1,7 +1,29 @@
-function addtotextbox(id) {
-    $('#search-field').val(recentSearches[id]);
-    console.log(recentSearches);
+
+var searchField = $('#search-field')
+
+
+var recentSearches = JSON.parse(localStorage.getItem('history')) || [];
+
+function searchFunction(data) {
+  recentSearches.push(searchField.val());
+//   searchField.val('');
+  $('#searchHistory').text('');
+  $.each(recentSearches, function (index, value) {
+    $('#searchHistory').append("<li class='historyItem' onclick='addtosearchfield(" + index + ")'>" + value + '</li>');
+  });
+  localStorage.setItem('history', JSON.stringify(recentSearches));
+}
+
+function addtosearchfield(id) {
+    searchField.val(recentSearches[id]);
   }
+  
+  // Autocomplete using jQuery UI
+  searchField.autocomplete({
+    source: recentSearches,
+    minLength: 1
+  });
+
   
   function getRecipe(search) {
      $('#recipe-heading').empty();
