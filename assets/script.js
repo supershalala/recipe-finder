@@ -163,7 +163,7 @@ function addtosearchfield(id) {
         $("#instruction-list").empty();
         $("#recipe-section h1").empty();
         $("#recipe-section span").empty();
-        // $(".img-section").attr("src", "");
+        $(".recipe-div img").attr("id","img-section");
         
         var image= data1.results[randArr].thumbnail_url;
         var recipieName= data1.results[randArr].name;
@@ -171,7 +171,7 @@ function addtosearchfield(id) {
         var serves= data1.results[randArr].yields;
         var prepTime= data1.results[randArr].prep_time_minutes;
         var cookTime= data1.results[randArr].cook_time_minutes;
-        var randName= "<div><h1>"+recipieName+"</h1><span>"+description+"</span</div>";
+        var randName= "<div class= 'recipe-div'><h1 class='recipe-heading'>"+recipieName+"</h1><span>"+description+"</span</div>";
         $("#recipe-section").prepend(randName);
         $("#img-section").attr("src", image);
         $("#serves").text(serves);
@@ -188,7 +188,7 @@ function addtosearchfield(id) {
             console.log(instructionsArray);
             $("#instruction-list").append("<li>"+instructionsArray[0][i].display_text+"</li>");
         }
-        $("#img-section").css({"height": " 500px", "width": "500px", "margin-left": "30%"});
+        $("#img-section").css({"height": " 500px", "width": "500px"});
         $("#instruction-list li").css("list-style-type", "disc");
 
     }
