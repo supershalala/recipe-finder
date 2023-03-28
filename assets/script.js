@@ -10,8 +10,11 @@ function searchFunction(data) {
   $('#searchHistory').text('');
   $.each(recentSearches, function (index, value) {
     $('#searchHistory').append("<li class='historyItem' onclick='addtosearchfield(" + index + ")'>" + value + '</li>');
+    
   });
+ 
   localStorage.setItem('history', JSON.stringify(recentSearches));
+
 }
 
 function addtosearchfield(id) {
@@ -22,6 +25,7 @@ function addtosearchfield(id) {
   searchField.autocomplete({
     source: recentSearches,
     minLength: 1
+
   });
 
   
