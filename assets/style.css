@@ -74,6 +74,17 @@ h1 {
 
 /* * recipe container styles */
 
+.recipe-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe-image {
+    justify-self: center;
+}
+
 .ingredients,
 .instructions {
     list-style-type: decimal;
@@ -120,9 +131,10 @@ h1 {
     gap: 1rem;
     justify-content: flex-start;
 }
+
 .trending-container {
     padding: .5rem;
-    width: clamp(10rem, 19vw + 100px, 25rem);
+    width: clamp(20rem, 19vw + 100px, 25rem);
 }
 
 .trending-img {
@@ -143,7 +155,6 @@ h1 {
 
 .footer {
 padding-top: .5rem;;
-
 }
 
 #title {
@@ -154,7 +165,5 @@ padding-top: .5rem;;
     
         position: fixed;
         bottom: 5%;
-        right: 3%;
-      
-      
+        right: 3%;   
 }

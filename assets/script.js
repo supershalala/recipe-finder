@@ -62,7 +62,7 @@ function addtosearchfield(id) {
         
         let recipeContainer = $('#recipe-section') 
         // Create a new div for the recipe details
-        let recipeDetails = $('<div>');
+        let recipeDetails = $('<div>').addClass('recipe-div');
         
         // get recipe image
         let image = $('<img>').addClass('recipe-image');
@@ -228,7 +228,7 @@ function trendingRecipes() {
         let container;
         recipeTabSection.empty()
         
-        for (let i = 0; i < trendingSearches.length; i++) {
+        for (let i = 0; i <= 8; i++) {
             let trendingHeading = trendingSearches[i].name
             trendingImg = trendingSearches[i].thumbnail_url
             // create a div and img for each search
