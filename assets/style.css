@@ -74,7 +74,6 @@ h1 {
 
 /* * recipe container styles */
 
-<<<<<<< HEAD
 .recipe-div {
     display: flex;
     flex-direction: column;
@@ -85,15 +84,13 @@ h1 {
 .recipe-image {
     justify-self: center;
 }
-=======
 
-/* .recipe-section {
+ .recipe-section {
    margin-inline: auto;
    padding: 2rem;
    width: clamp(30rem, 85vw + 1rem, 70rem );
-}
+} 
 
->>>>>>> main
 
 .ingredients,
 .instructions {
@@ -103,10 +100,7 @@ h1 {
 }
 
 
-.ingredients *,
-.instructions *
-{
-   margin-bottom: .5rem;
+
 .ingredients *, 
 .instructions *
 {
@@ -115,7 +109,6 @@ h1 {
 }
 
 .recipe-description {
-   margin-bottom: 1rem;
     margin-bottom: 1rem;
     padding: 0 1rem;
 }
@@ -123,8 +116,6 @@ h1 {
 .recipe-heading {
    margin: 2.5rem 0;
    font-size: 2.5rem;
-    margin: 2.5rem 0;
-    font-size: 2.5rem;
     padding: 0 1rem;
 }
 
@@ -132,8 +123,6 @@ h1 {
 .instructions-heading {
    font-size: 2rem;
    margin-bottom: 1rem;
-    font-size: 2rem;
-    margin-bottom: 1rem;
     padding: 0 1rem;
 }
 
@@ -149,22 +138,9 @@ h1 {
 .recipe-image {
    width: clamp(300px, 20vw + 100px, 1000px);
    object-fit: contain;
-} */
+} 
 
 
-
-/* 
-.trending-section {
-   margin: 0 5rem;
-   padding: 1rem;
-   display: flex;
-   flex-wrap: wrap;
-   gap: 1rem;
-   justify-content: flex-start;
-}
-.trending-container {
-   width: clamp(300px, 25vw + 100px, 1000px);
-   padding: .5rem; */
    
 .trending-section {
     padding: 1rem;
@@ -180,8 +156,6 @@ h1 {
 }
 
 .trending-img {
-   /* width: clamp(300px, 30vw + 100px, 1000px); */
-   object-fit: cover;
     width: 100%;
     object-fit: cover;
     aspect-ratio: 1;  
