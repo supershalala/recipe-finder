@@ -149,3 +149,12 @@ padding-top: .5rem;;
 #title {
     cursor: pointer;
 }
+
+#modal-btn {
+    
+        position: fixed;
+        bottom: 5%;
+        right: 3%;
+      
+      
+}
