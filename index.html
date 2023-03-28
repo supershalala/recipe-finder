@@ -21,17 +21,15 @@
    <title>Recipe Maker</title>
  </head>
 
-
- 
  <body>
-  <div class="columns pt-4 has-background-dark is-vcentered">
-   <h1 class=" column pl-5 has-text-primary-light is-one-third is-size-2">Recipe Search Tool</h1>
-   <form id="form" class="search-form columns ">
-     <input type="text" class="input column  is-medium is-full is-rounded" id="search-field" placeholder="Search for a recipe...">
-     <button type="button" class="button column is-medium ml-3 is-rounded" id="search-btn" onclick="searchFunction()">Search</button>
-     <button id="random-btn" class="button is-medium is-link column ml-3 is-rounded">I'm Feeling Hungry</button>
- </form>
-  </div>
+    <div class="columns is-fullwidth pt-4 is-vcentered has-background-dark is-justify-content-space-between">
+      <h1 class="column pl-5 has-text-primary-light is-one-third is-size-2">Recipe Search Tool</h1>
+      <form id="form" class="search-form columns is-vcentered pr-6">
+        <input type="text" class="input is-medium is-rounded ml-5" id="search-field" placeholder="Search for a recipe...">
+        <button type="button" class="button is-medium ml-3 is-rounded" id="search-btn" onclick="searchFunction()">Search</button>
+        <button id="random-btn" class="button is-medium is-link ml-3 is-rounded">I'm Feeling Hungry</button>
+      </form>
+    </div>
 
   <!-- Search Historydiv -->
   <!-- <div>
@@ -39,7 +37,6 @@
     <h3> Search History:</h3>
     <ul id="searchHistory"></ul>
    </div> -->
-
 
 <!-- <div id="homepage "class="tile is-ancestor">
 
@@ -72,56 +69,38 @@
 
 <div class="container">
 <!-- card section that dynamically loads from JS -->
-   <!-- tabs section -->
-   <div class="tabs is-boxed">
-    <ul>
-      <li id="trending-recipes-tab" class="is-active">
-        <a>
-          <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
-          <span>Trending Recipes</span>
-        </a>
-      </li>
-      <li id="featured-recipes-tab">
-        <a>
-          <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
-          <span>Featured</span>
-        </a>
-      </li>
-      <li id="sweets-recipes-tab">
-        <a>
-          <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
-          <span id="tab-heading">Spring Sweets</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-   <section id="recipe-section" class="recipe-section card">
-    <div class="card-image">
-      <figure class="image">
-     <img class="is-256x256" id="img-section"></img>
+<section id="recipe-section" class="recipe-section card">
+  <div class="card-image">
+    <figure class="image">
+      <img class="" id="img-section"></img>
     </figure>
-    </div>
-     <ul id="ingredients-list" class="ingredients">
-     </ul>
-     <ul id="instruction-list" class="instructions">
-     </ul>
-     <div id="additional-info">
-       <div class="serves"><p id="serves"></p></div>
-       <div class="prep"><p id="prep-time"></p></div>
-       <div class="cook"><p id="cook-time"></p></div>
-     </div>
-   </section>
-   <section id="trending-section" class="trending-section"></section>
-
   </div>
+  <ul id="ingredients-list" class="ingredients">
+  </ul>
+  <ul id="instruction-list" class="instructions">
+  </ul>
+  <div id="additional-info">
+    <div class="serves"><p id="serves"></p></div>
+    <div class="prep"><p id="prep-time"></p></div>
+    <div class="cook"><p id="cook-time"></p></div>
+  </div>
+</section>
+<!-- tabs section -->
+<div class="tab is-boxed mt-3">
+ <ul>
+   <li id="trending-recipes-tab" class="is-active">
+     <a>
+       <span class="is-size-3 has-text-grey">Trending Recipes</span>
+     </a>
+   </li>
+ </ul>
+</div>
+   <section id="trending-section" class="card is-justify-content-center trending-section"></section>
+</div>
 
   
 
-  </div>
-
-  
-
-  </div>
+ 
 
   <footer class="footer has-background-dark is-transparent">
     <div class="content has-text-centered has-text-primary-light">
