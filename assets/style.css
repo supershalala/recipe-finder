@@ -3,7 +3,6 @@
 --font: 'poppins';    
 }
 
-
 /* * {
     box-sizing: border-box;
     margin: 0;
@@ -74,6 +73,9 @@ h1 {
 
 
 /* * recipe container styles */
+.hide {
+    display: none;
+}
 
 .recipe-div {
     display: flex;
@@ -99,8 +101,6 @@ h1 {
     list-style-position: inside;
     margin-bottom: 1rem;
 }
-
-
 
 .ingredients *, 
 .instructions *
@@ -187,8 +187,4 @@ padding-top: .5rem;;
         position: fixed;
         bottom: 5%;
         right: 3%;   
-}
-
-a:hover {
- color: antiquewhite;
 }
