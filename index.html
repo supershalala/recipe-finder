@@ -1,137 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-   <meta charset="UTF-8" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <!-- Bulma CDN -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bulma CDN -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-   <link href="
-   https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css
-   " rel="stylesheet">   
-   <link rel="stylesheet" href="./assets/style.css" />
-   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-   <script
-     src="https://code.jquery.com/jquery-3.6.4.min.js"
-     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-     crossorigin="anonymous"
-   ></script>
-   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-   <title>Recipe Maker</title>
- </head>
 
- <body>
-    <div class="columns is-fullwidth pt-4 is-vcentered has-background-dark is-justify-content-space-between">
-      <h1 id="title" class="column pl-5 has-text-primary-light is-one-third is-size-2">Recipe Search Tool</h1>
-      <form id="form" class="search-form columns is-vcentered pr-6">
-        <input type="text" class="input is-medium is-rounded ml-5" id="search-field" placeholder="Search for a recipe...">
-        <button type="button" class="button is-medium ml-3 is-rounded" id="search-btn" onclick="searchFunction()">Search</button>
-        <button id="random-btn" class="button is-medium is-link ml-3 is-rounded">I'm Feeling Hungry</button>
-      </form>
-    </div>
+  <link href="
+  https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css
+  " rel="stylesheet">  
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script
+    src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <title>Recipe Maker</title>
+</head>
+
+
+<body>
+   <div class="columns is-fullwidth pt-4 is-vcentered has-background-dark is-justify-content-space-between">
+     <h1 id="title" class="column pl-5 has-text-primary-light is-one-third is-size-2">Recipe Search Tool</h1>
+     <form id="form" class="search-form columns is-vcentered pr-6">
+       <input type="text" class="input is-medium is-rounded ml-5" id="search-field" placeholder="Search for a recipe...">
+       <button type="button" class="button is-medium ml-3 is-rounded" id="search-btn" onclick="searchFunction()">Search</button>
+       <button id="random-btn" class="button is-medium is-link ml-3 is-rounded">I'm Feeling Hungry</button>
+     </form>
+   </div>
 <!-- Homepage hero image div. hides on search and random btn click -->
-    <div id="homepage" class="columns">
+   <div id="homepage" class="columns">
 
-      <img class=" p-0 column image is-half" src="https://images.unsplash.com/photo-1518291344630-4857135fb581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="Your image alternate text">
- 
-      <div class="column is-half has-background-warning is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-        <h2 class="title is-size-2">Welcome to the recipe builder</h2>
-        <p class="is-size-4">Enjoy free access to thousands of recipes</p>
-        <p class="is-size-4">Start exploring today</p>
-      </div>
-    </div>
 
-  
- 
+     <img class=" p-0 column image is-half" src="https://images.unsplash.com/photo-1518291344630-4857135fb581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="Your image alternate text">
+     <div class="column is-half has-background-warning is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+       <h2 class="title is-size-2">Welcome to the recipe builder</h2>
+       <p class="is-size-4">Enjoy free access to thousands of recipes</p>
+       <p class="is-size-4">Start exploring today</p>
+     </div>
+   </div>
+
+
+
 
 <div class="container">
 <!-- card section that dynamically loads from JS -->
 <section id="recipe-section" class="recipe-section card">
-  <div class="card-image">
-    <figure class="image">
-      <img class="" id="img-section"></img>
-    </figure>
-  </div>
-  <ul id="ingredients-list" class="ingredients">
-  </ul>
-  <ul id="instruction-list" class="instructions">
-  </ul>
-  <div id="additional-info">
-    <div class="serves"><p id="serves"></p></div>
-    <div class="prep"><p id="prep-time"></p></div>
-    <div class="cook"><p id="cook-time"></p></div>
-  </div>
+ <div class="card-image">
+   <figure class="image">
+     <img class="" id="img-section"></img>
+   </figure>
+ </div>
+ <ul id="ingredients-list" class="ingredients">
+ </ul>
+ <ul id="instruction-list" class="instructions">
+ </ul>
+ <div id="additional-info">
+   <div class="serves"><p id="serves"></p></div>
+   <div class="prep"><p id="prep-time"></p></div>
+   <div class="cook"><p id="cook-time"></p></div>
+ </div>
 </section>
 <!-- tabs section -->
 <div class="tab is-boxed mt-3">
- <ul>
-   <li id="trending-recipes-tab" class="is-active">
-     <a>
-       <span class="is-size-3 has-text-grey">Trending Recipes</span>
-     </a>
-   </li>
- </ul>
+<ul>
+  <li id="trending-recipes-tab" class="is-active">
+    <a>
+      <span class="is-size-3 has-text-grey">Trending Recipes</span>
+    </a>
+  </li>
+</ul>
 </div>
-   <section id="trending-section" class="card is-justify-content-center trending-section"></section>
+  <section id="trending-section" class="card is-justify-content-center trending-section"></section>
 </div>
 
 
 
 
 
-  <footer class="footer has-background-dark is-transparent">
-    <div class="content has-text-centered has-text-primary-light">
-      <p>
-        <h2 class="has-text-primary-light">Recipe Finder</h2> by Team 8</a>.<br>
-        
-      <div class="columns is-mobile pt-4">
-        <div class="column is-one-quarters-mobile is-one-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd has-text-primary-light">
-          <h3 class = "header has-text-primary-light">Team Members</h3>
-          <code class = "name has a has-background-dark"><a href="https://github.com/Travisnicholson90">Travis Nicholson</a></code><br>
-          <code class = "name has-background-dark"><a href="https://github.com/supershalala">Adam Shalala</a></code><br>
-          <code class = "name has-background-dark"><a href="https://github.com/Andy316C">Andrew Clark</a></code><br>
-          <code class = "name has-background-dark"><a href="https://github.com/Ekim1473">Michael McCabe</a></code><br>
+
+
+
+
+
+ <footer class="footer has-background-dark is-transparent">
+   <div class="content has-text-centered has-text-primary-light">
+     <p>
+       <h2 class="has-text-primary-light">Recipe Finder</h2> by Team 8</a>.<br>
+      
+     <div class="columns is-mobile pt-4">
+       <div class="column is-one-quarters-mobile is-one-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd has-text-primary-light">
+         <h3 class = "header has-text-primary-light">Team Members</h3>
+         <code class = "name has a has-background-dark"><a href="https://github.com/Travisnicholson90">Travis Nicholson</a></code><br>
+         <code class = "name has-background-dark"><a href="https://github.com/supershalala">Adam Shalala</a></code><br>
+         <code class = "name has-background-dark"><a href="https://github.com/Andy316C">Andrew Clark</a></code><br>
+         <code class = "name has-background-dark"><a href="https://github.com/Ekim1473">Michael McCabe</a></code><br>
+      </div>
+
+
+       <div class="column has-text-primary-light">
+         <h3 class="has-text-primary-light">Project Repo</h3>
+         <strong><a href="https://github.com/supershalala/recipe-finder">Recipe Finder Repo</strong>
        </div>
 
-        <div class="column has-text-primary-light">
-          <h3 class="has-text-primary-light">Project Repo</h3>
-          <strong><a href="https://github.com/supershalala/recipe-finder">Recipe Finder Repo</strong>
-        </div>
 
-        <div class="column has-text-primary-light">
-          <h3 class="has-text-primary-light">API's Used</h3>
-        <strong class="has-text-primary-light">APIdojo's</strong> <a href="https://rapidapi.com/apidojo/api/tasty">Tasty</a>
-        </div>
-        
-      </div>
-    </div>d
-  </footer>
+       <div class="column has-text-primary-light">
+         <h3 class="has-text-primary-light">API's Used</h3>
+       <strong class="has-text-primary-light">APIdojo's</strong> <a href="https://rapidapi.com/apidojo/api/tasty">Tasty</a>
+       </div>
+      
+     </div>
+   </div>d
+ </footer>
 <!-- Help Modal -->
-  <button id="modal-btn" class="js-modal-trigger has-text-link-light button has-background-link	is-rounded is-large" data-target="modal-js-example">
-   ?
-  </button>
+ <button id="modal-btn" class="js-modal-trigger has-text-link-light button has-background-link is-rounded is-large" data-target="modal-js-example">
+  ?
+ </button>
 
-  <div id="modal-js-example" class="modal">
-    <div class="modal-background"></div>
-  
+
+ <div id="modal-js-example" class="modal">
+   <div class="modal-background"></div>
     <div class="modal-content">
-      <div class="box">
-        <h2>How to use this site</h2>
-        <p>Input a recipe idea in the search recipe field to be shown the closest match to your serach term.</p>
+     <div class="box">
+       <h2>How to use this site</h2>
+       <p>Input a recipe idea in the search recipe field to be shown the closest match to your serach term.</p>
 
 
-  
+
+
       </div>
-    </div>
-  
+   </div>
     <button class="modal-close is-large " aria-label="close"></button>
-  </div>
-   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-   <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-  
+ </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-   <script src="./assets/script.js"></script>
- </body>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="./assets/script.js"></script>
+</body>
 </html>
+
+
+
