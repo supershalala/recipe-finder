@@ -3,6 +3,7 @@ var searchField = $('#search-field')
 
 
 var recentSearches = JSON.parse(localStorage.getItem('history')) || [];
+recentSearches = recentSearches.filter((item,index)=>recentSearches.indexOf(item)==index);
 
 function searchFunction(data) {
   recentSearches.push(searchField.val());
