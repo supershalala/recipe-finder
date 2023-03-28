@@ -3,6 +3,7 @@
 --font: 'poppins';    
 }
 
+
 /* * {
     box-sizing: border-box;
     margin: 0;
@@ -186,4 +187,8 @@ padding-top: .5rem;;
         position: fixed;
         bottom: 5%;
         right: 3%;   
+}
+
+a:hover {
+ color: antiquewhite;
 }
