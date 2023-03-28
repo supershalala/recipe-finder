@@ -85,6 +85,7 @@ h1 {
 
 /* * recipe container styles */
 
+<<<<<<< HEAD
 
 /* .recipe-section {
    margin-inline: auto;
@@ -93,34 +94,62 @@ h1 {
 }
 
 
+=======
+>>>>>>> c1d6a4c5f1a32cc2ec317599de4a2f7176fc1906
 .ingredients,
 .instructions {
    list-style-type: decimal;
    list-style-position: inside;
    margin-bottom: 1rem;
 }
+<<<<<<< HEAD
 
 
 .ingredients *,
 .instructions *
 {
    margin-bottom: .5rem;
+=======
+.ingredients *, 
+.instructions *
+{
+    margin-bottom: .5rem;
+    padding: 0 1rem;
+>>>>>>> c1d6a4c5f1a32cc2ec317599de4a2f7176fc1906
 }
 
 
 .recipe-description {
+<<<<<<< HEAD
    margin-bottom: 1rem;
+=======
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+>>>>>>> c1d6a4c5f1a32cc2ec317599de4a2f7176fc1906
 }
 
 
 .recipe-heading {
+<<<<<<< HEAD
    margin: 2.5rem 0;
    font-size: 2.5rem;
+=======
+    margin: 2.5rem 0;
+    font-size: 2.5rem;
+    padding: 0 1rem;
+>>>>>>> c1d6a4c5f1a32cc2ec317599de4a2f7176fc1906
 }
+
 .ingredients-heading,
 .instructions-heading {
+<<<<<<< HEAD
    font-size: 2rem;
    margin-bottom: 1rem;
+=======
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+>>>>>>> c1d6a4c5f1a32cc2ec317599de4a2f7176fc1906
 }
 
 
@@ -132,6 +161,7 @@ h1 {
    font-size: .8rem;
 }
 
+<<<<<<< HEAD
 
 .recipe-image {
    width: clamp(300px, 20vw + 100px, 1000px);
@@ -152,12 +182,40 @@ h1 {
 .trending-container {
    width: clamp(300px, 25vw + 100px, 1000px);
    padding: .5rem;
+=======
+.trending-section {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+.trending-container {
+    padding: .5rem;
+    width: clamp(10rem, 19vw + 100px, 25rem);
+>>>>>>> c1d6a4c5f1a32cc2ec317599de4a2f7176fc1906
 }
 
 
 .trending-img {
+<<<<<<< HEAD
    /* width: clamp(300px, 30vw + 100px, 1000px); */
    object-fit: cover;
+=======
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;  
+}
+
+.recipe-image{
+    width: clamp(20rem, 30vw + 100px, 55rem);
+    object-fit: cover;
+    aspect-ratio: 1;
+}
+
+.trending-title {
+    font-size: clamp(1rem, 1.5vw + 0rem, 2.5rem);
+>>>>>>> c1d6a4c5f1a32cc2ec317599de4a2f7176fc1906
 }
 
 
@@ -167,5 +225,20 @@ padding-top: .5rem;;
 
 }
 
+<<<<<<< HEAD
 
 
+=======
+#title {
+    cursor: pointer;
+}
+
+#modal-btn {
+    
+        position: fixed;
+        bottom: 5%;
+        right: 3%;
+      
+      
+}
+>>>>>>> c1d6a4c5f1a32cc2ec317599de4a2f7176fc1906
