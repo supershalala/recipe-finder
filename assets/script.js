@@ -251,3 +251,21 @@ function trendingRecipes() {
 }
 
 trendingRecipes()
+
+$(document).ready(function() {
+    $('#search-btn').click(function() {
+      $('#homepage').hide();
+    });
+
+    $('#random-btn').click(function(){
+        event.preventDefault();
+        $('#homepage').hide();
+        console.log ("you clicked the random button");
+    });
+    
+    $('#title').on('click', function() {
+      
+        location.reload();
+      });
+
+  });

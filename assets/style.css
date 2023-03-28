@@ -145,3 +145,7 @@ h1 {
 padding-top: .5rem;;
 
 }
+
+#title {
+    cursor: pointer;
+}
