@@ -6,6 +6,7 @@ var searchField = $('#search-field')
 
 
 var recentSearches = JSON.parse(localStorage.getItem('history')) || [];
+//Prevent duplicate searches from displaying
 recentSearches = recentSearches.filter((item,index)=>recentSearches.indexOf(item)==index);
 
 
