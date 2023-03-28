@@ -204,6 +204,14 @@ function addtosearchfield(id) {
     }
       //handle form submissions
       $("#search-btn").on("click", handleForm);
+      // hide card container until search & random btn clicked
+      $('#search-btn').on('click', hideContainer);
+      $('#random-btn').on('click', hideContainer);
+      
+      // remove hide class on card container
+      function hideContainer() {
+        $('#recipe-section').removeClass('hide');
+      }
 
 let recipeTabSection = $('#trending-section')
 
