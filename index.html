@@ -23,48 +23,26 @@
 
  <body>
     <div class="columns is-fullwidth pt-4 is-vcentered has-background-dark is-justify-content-space-between">
-      <h1 class="column pl-5 has-text-primary-light is-one-third is-size-2">Recipe Search Tool</h1>
+      <h1 id="title" class="column pl-5 has-text-primary-light is-one-third is-size-2">Recipe Search Tool</h1>
       <form id="form" class="search-form columns is-vcentered pr-6">
         <input type="text" class="input is-medium is-rounded ml-5" id="search-field" placeholder="Search for a recipe...">
         <button type="button" class="button is-medium ml-3 is-rounded" id="search-btn" onclick="searchFunction()">Search</button>
         <button id="random-btn" class="button is-medium is-link ml-3 is-rounded">I'm Feeling Hungry</button>
       </form>
     </div>
+<!-- Homepage hero image div. hides on search and random btn click -->
+    <div id="homepage" class="columns">
 
-  <!-- Search Historydiv -->
-  <!-- <div>
-
-    <h3> Search History:</h3>
-    <ul id="searchHistory"></ul>
-   </div> -->
-
-<!-- <div id="homepage "class="tile is-ancestor">
-
-  <div class="tile is-6">
-    <img src="https://images.unsplash.com/photo-1518291344630-4857135fb581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="Your image alternate text">
-  </div>
-  <div class="tile is-vertical is-6">
-    <div class="tile is-child notification is-warning  has-text-centered">
-      <p class="title is-1">Making Dinner easy</p>
+      <img class=" p-0 column image is-half" src="https://images.unsplash.com/photo-1518291344630-4857135fb581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="Your image alternate text">
+ 
+      <div class="column is-half has-background-warning is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+        <h2 class="title is-size-2">Welcome to the recipe builder</h2>
+        <p class="is-size-4">Enjoy free access to thousands of recipes</p>
+        <p class="is-size-4">Start exploring today</p>
+      </div>
     </div>
 
-    <div class="tile is-child is-vertically-centered has-text-centered">
-      <p class="title">Search your favourite recipes</p>
-      <p class="subtitle">From 1000s of recipes</p>
-      <p>Explore different cuisines and dietary options to find the perfect meal for you. Enjoy high-quality, easy-to-follow recipes that are perfect for any level of cooking experience.</p>
-    </div>
-
-    <div class="tile is-child is-vertically-centered has-text-centered">
-      <p class="title">Can't Decide?</p>
-      <p class="subtitle">Let us choose for you</p>
-      <p>Click on the i'm feeling hungry button to be shown a random recipe from our curated list.</p>
-    </div>
-
-    <div class="tile is-child is-vertically-centered has-text-centered">
-      <p class="title">Child Tile 3</p>
-      <p>Text goes here.</p>
-    </div>
-</div> -->
+  
  
 
 <div class="container">
@@ -98,9 +76,9 @@
    <section id="trending-section" class="card is-justify-content-center trending-section"></section>
 </div>
 
-  
 
- 
+
+
 
   <footer class="footer has-background-dark is-transparent">
     <div class="content has-text-centered has-text-primary-light">
@@ -127,10 +105,28 @@
         </div>
         
       </div>
-    </div>
+    </div>d
   </footer>
+<!-- Help Modal -->
+  <button id="modal-btn" class="js-modal-trigger has-text-link-light button has-background-link	is-rounded is-large" data-target="modal-js-example">
+   ?
+  </button>
+
+  <div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+  
+    <div class="modal-content">
+      <div class="box">
+        <h2>How to use this site</h2>
+        <p>Input a recipe idea in the search recipe field to be shown the closest match to your serach term.</p>
 
 
+  
+      </div>
+    </div>
+  
+    <button class="modal-close is-large " aria-label="close"></button>
+  </div>
    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
   
