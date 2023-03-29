@@ -327,10 +327,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // JS mediaquery for navDiv
 
-  $(window).resize(function() {
-    if (window.innerWidth <= 1000) $("#navDiv").addClass('pb-6');
-    else $homeIcon.removeClass('pb-6');
-  });
 
