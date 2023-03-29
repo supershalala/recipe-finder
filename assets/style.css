@@ -188,3 +188,12 @@ padding-top: .5rem;;
         bottom: 5%;
         right: 3%;   
 }
+
+@media (max-width: 769px) {
+
+    #navDiv {
+        padding-bottom: 50px;
+    }
+
+
+  }
