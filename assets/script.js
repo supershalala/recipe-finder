@@ -164,6 +164,7 @@ function addtosearchfield(id) {
         $("#instruction-list").empty();
         $("#recipe-section h1").empty();
         $("#recipe-section span").empty();
+        $(".recipe-description").empty();
         $(".recipe-div img").attr("id","img-section");
         
         var image= data1.results[randArr].thumbnail_url;
@@ -172,12 +173,17 @@ function addtosearchfield(id) {
         var serves= data1.results[randArr].yields;
         var prepTime= data1.results[randArr].prep_time_minutes;
         var cookTime= data1.results[randArr].cook_time_minutes;
-        var randName= "<div class= 'recipe-div'><h1 class='recipe-heading'>"+recipieName+"</h1><span>"+description+"</span</div>";
+        var randName= "<div><h1 class='recipe-heading'>"+recipieName+"</h1><span>"+description+"</span</div>";
         $("#recipe-section").prepend(randName);
         $("#img-section").attr("src", image);
         $("#serves").text(serves);
+        if(prepTime !== null){
         $("#prep-time").text("Prep time: "+prepTime+ " mins");
-        $("#cook-time").text("Cook time: "+cookTime+ " mins");
+        }
+        if(cookTime !== null){
+          $("#cook-time").text("Cook time: "+cookTime+ " mins");
+        }
+        
 
         
         for(var i2= 0; i2 < data1.results[randArr].sections[0].components.length; i2++){
